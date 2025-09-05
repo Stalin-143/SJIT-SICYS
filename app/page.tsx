@@ -201,27 +201,28 @@ At WiCyS, we create opportunities for women to learn, connect, and thrive in the
 
       {/* Gallery */}
       <section id="gallery" className="py-16 border-t border-border anchor-target">
-        <div className="w-full px-4 sm:px-6 lg:px-12 xl:px-16">
-          <h2 className="reveal text-2xl font-semibold">Gallery</h2>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-            {Array.from({ length: 6 }).map((_, i) => (
-              <div
-                key={i}
-                className="card-reveal hover-raise rounded-lg overflow-hidden border border-border bg-card"
-                style={{ transitionDelay: `${(i % 6) * 60}ms` }}
-              >
-                <Image
-                  src={`/wicys-event-photo-.png?key=x0w2j&height=240&width=360&query=WiCyS%20event%20photo%20${i + 1}`}
-                  alt={`Event photo ${i + 1}`}
-                  width={360}
-                  height={240}
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-            ))}
-          </div>
+  <div className="w-full px-4 sm:px-6 lg:px-12 xl:px-16">
+    <h2 className="reveal text-2xl font-semibold">Gallery</h2>
+    <div className="mt-8 grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      {Array.from({ length: 8 }).map((_, i) => (
+        <div
+          key={i}
+          className="card-reveal hover-raise rounded-lg overflow-hidden border border-border bg-card"
+          style={{ transitionDelay: `${(i % 10) * 60}ms` }}
+        >
+          <Image
+            src={`/gallery/${i + 1}.png`}
+            alt={`WiCyS event photo ${i + 1}`}
+            width={360}
+            height={240}
+            className="w-full h-auto object-cover"
+          />
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
+
 
       {/* Contact */}
       <section id="contact" className="py-16 border-t border-border anchor-target">
@@ -243,13 +244,13 @@ At WiCyS, we create opportunities for women to learn, connect, and thrive in the
                 <div className="mt-6 space-y-4 text-sm">
                   <div>
                     <p className="font-medium">Email</p>
-                    <a href="mailto:wicys@chapter.edu" className="link-underline">
-                      wicys@chapter.edu
+                    <a href="mailto:wicys.sjcexsjit@gmail.com" className="link-underline">
+                      wicys.sjcexsjit@gmail.com
                     </a>
                   </div>
                   <div>
                     <p className="font-medium">Location</p>
-                    <p className="text-foreground/80">Your University, Department of CS</p>
+                    <p className="text-foreground/80">St. Joseph's Groups Of Institution</p>
                   </div>
                   <div>
                     <p className="font-medium">Response time</p>
@@ -259,7 +260,7 @@ At WiCyS, we create opportunities for women to learn, connect, and thrive in the
 
                 <div className="mt-6">
                   <a
-                    href="mailto:wicys@chapter.edu"
+                    href="wicys.sjcexsjit@gmail.com"
                     className="inline-flex items-center justify-center rounded-md border border-border px-4 py-2 text-sm font-medium transition hover:-translate-y-0.5 hover:shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                   >
                     Email us
