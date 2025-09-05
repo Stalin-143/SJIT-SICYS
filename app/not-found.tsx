@@ -11,7 +11,7 @@ export default function NotFound() {
         className="pointer-events-none fixed inset-0 -z-10 opacity-5 dark:opacity-10"
         style={{
           backgroundImage:
-            'url("https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-09-01%20at%207.58.07%20PM-jYDrMbBkAvz2tVsBt4dbd4SkhK0h6h.jpeg")',
+            'url("/logo.png")',
           backgroundRepeat: "no-repeat",
           backgroundPosition: "right 5% center",
           backgroundSize: "min(60vw, 900px)",

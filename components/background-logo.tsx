@@ -6,12 +6,11 @@ export default function BackgroundLogo() {
       aria-hidden="true"
       className="pointer-events-none fixed inset-0 -z-10"
       style={{
-        backgroundImage:
-          'url("https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-09-01%20at%207.58.07%20PM-jYDrMbBkAvz2tVsBt4dbd4SkhK0h6h.jpeg")',
+        backgroundImage: 'url("/logo.png")',
         backgroundRepeat: "no-repeat",
         backgroundPosition: "right -80px top -60px",
         backgroundSize: "min(80vmin, 520px)",
-        opacity: 0.08,
+        opacity: 0.03, // More transparent (was 0.08)
         filter: "saturate(0.98) contrast(1.05)",
         transform:
           "translate3d(calc(var(--mouse-x, 0px) * 0.025), calc((var(--mouse-y, 0px) * 0.018) + (var(--scroll, 0px) * -0.03)), 0)",

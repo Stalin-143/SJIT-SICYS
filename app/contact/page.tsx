@@ -8,7 +8,7 @@ export default function ContactPage() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h1 className="reveal parallax-1 text-3xl font-bold">Get In Touch</h1>
         <p className="reveal mt-2 text-foreground/80">
-          Questions, partnerships, or membership? We’d love to hear from you.
+          Questions, partnerships, or membership? We'd love to hear from you.
         </p>
 
         <div className="reveal mt-8 grid gap-8 md:grid-cols-2" data-reveal="up">
@@ -20,7 +20,7 @@ export default function ContactPage() {
               </a>
             </p>
             <p className="text-foreground/80">
-              Institution: <span className="font-medium">St. Joseph’s Group of Institution, Chennai</span>
+              Institution: <span className="font-medium">St. Joseph's Group of Institution, Chennai</span>
             </p>
             <div className="flex items-center gap-4">
               <a
@@ -35,7 +35,6 @@ export default function ContactPage() {
                   <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.05c.53-1 1.84-2.2 3.79-2.2 4.06 0 4.81 2.67 4.81 6.14V24h-4v-7.1c0-1.7-.03-3.89-2.37-3.89-2.37 0-2.73 1.85-2.73 3.77V24h-4V8z" />
                 </svg>
               </a>
-              {/* Keep or replace this with your real X/Twitter profile */}
               <a
                 aria-label="Twitter"
                 href="#"

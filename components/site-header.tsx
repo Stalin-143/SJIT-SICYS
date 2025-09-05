@@ -14,7 +14,6 @@ export function SiteHeader() {
   function scrollToId(id: string) {
     const el = document.getElementById(id)
     if (!el) return
-    // Use native scrollIntoView; offset is handled via CSS scroll-margin-top on .anchor-target
     el.scrollIntoView({ behavior: "smooth", block: "start" })
   }
 
@@ -25,11 +24,9 @@ export function SiteHeader() {
     const id = href.startsWith("/#") ? href.slice(2) : href.slice(1)
 
     if (pathname !== "/") {
-      // Navigate to home (allow default scroll) and let the initial effect handle precise positioning
       router.push(`/#${id}`)
     } else {
       scrollToId(id)
-      // update URL hash for accessibility/back behavior
       history.replaceState(null, "", `#${id}`)
     }
     setOpen(false)
@@ -46,18 +43,15 @@ export function SiteHeader() {
     setHeaderVar()
     const onResize = () => setHeaderVar()
 
-    // observe header size changes too
     const header = document.querySelector("header") as HTMLElement | null
     const ro = header ? new ResizeObserver(() => setHeaderVar()) : null
     if (ro && header) ro.observe(header)
 
     window.addEventListener("resize", onResize)
 
-    // Handle direct hash visits and hash changes on home
     const hash = window.location.hash
     if (pathname === "/" && hash) {
       const id = hash.slice(1)
-      // Scroll after mount to ensure layout is ready
       setTimeout(() => scrollToId(id), 0)
     }
     const onHashChange = () => {
@@ -86,64 +80,59 @@ export function SiteHeader() {
   ]
 
   return (
-    <header className="sticky top-0 z-50 bg-background/80 backdrop-blur border-b border-border">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        <Link href="/#home" className="flex items-center gap-3" onClick={(e) => handleAnchorClick(e as any, "/#home")}>
-          <img
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-09-01%20at%207.58.07%20PM-jYDrMbBkAvz2tVsBt4dbd4SkhK0h6h.jpeg"
-            alt="WiCyS logo"
-            className="h-10 w-auto"
-            loading="eager"
-            decoding="async"
-          />
-          <span className="sr-only">Women in Cybersecurity</span>
-        </Link>
-
-        <nav className="hidden md:flex items-center gap-6" aria-label="Primary">
-          {nav.map((n) => (
-            <Link
-              key={n.href}
-              href={n.href}
-              prefetch={false}
-              onClick={(e) => handleAnchorClick(e, n.href)}
-              className="text-sm text-foreground hover:text-primary transition-colors link-underline"
-            >
-              {n.label}
-            </Link>
-          ))}
-          <ThemeToggle />
-        </nav>
-
-        <div className="md:hidden flex items-center gap-2">
-          <ThemeToggle />
-          <button
-            aria-label="Open menu"
-            className="inline-flex items-center rounded-md border border-border px-3 py-2 text-sm"
-            onClick={() => setOpen((v) => !v)}
-          >
-            Menu
-          </button>
-        </div>
-
-        {open && (
-          <div className="absolute right-4 top-16 w-56 rounded-md border border-border bg-background shadow-md p-3 flex flex-col gap-2 md:hidden">
+    <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center">
+        {/* Desktop */}
+        <div className="hidden md:flex items-center w-full">
+          <div className="flex-1"></div>
+          <nav className="flex items-center space-x-6" aria-label="Primary">
             {nav.map((n) => (
               <Link
                 key={n.href}
                 href={n.href}
                 prefetch={false}
                 onClick={(e) => handleAnchorClick(e, n.href)}
-                className="text-sm text-foreground hover:text-primary"
+                className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors duration-200"
               >
                 {n.label}
               </Link>
             ))}
-            <div className="pt-2 border-t border-border">
-              <ThemeToggle />
-            </div>
+          </nav>
+          <div className="flex-1 flex justify-end">
+            <ThemeToggle />
           </div>
-        )}
+        </div>
+
+        {/* Mobile */}
+        <div className="flex md:hidden items-center justify-between w-full">
+          <ThemeToggle />
+          <button
+            aria-label="Open menu"
+            className="inline-flex items-center justify-center rounded-md border border-border bg-background px-3 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
+            onClick={() => setOpen((v) => !v)}
+          >
+            Menu
+          </button>
+        </div>
       </div>
+
+      {open && (
+        <div className="absolute right-4 top-full mt-2 w-64 rounded-lg border border-border bg-background/95 backdrop-blur-sm shadow-lg p-4 md:hidden z-50">
+          <nav className="flex flex-col space-y-3">
+            {nav.map((n) => (
+              <Link
+                key={n.href}
+                href={n.href}
+                prefetch={false}
+                onClick={(e) => handleAnchorClick(e, n.href)}
+                className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors duration-200 py-2 px-3 rounded-md hover:bg-accent/50"
+              >
+                {n.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+      )}
     </header>
   )
 }

@@ -4,16 +4,15 @@ import { Inter } from "next/font/google"
 import { GeistMono } from "geist/font/mono"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
+import Script from "next/script"
 import "./globals.css"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { RevealMount } from "@/components/reveal-mount"
 import MotionProvider from "@/components/motion-provider"
 import BackgroundLogo from "@/components/background-logo"
-import CursorFollower from "@/components/cursor-follower"
 import { ThemeProvider } from "@/components/theme-provider"
 import MouseEffects from "@/components/mouse-effects"
-import CursorRipples from "@/components/cursor-ripples"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -38,17 +37,18 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <MotionProvider />
           <MouseEffects />
-          <CursorFollower />
+          {/* Pink Cursor Implementation - Replaces CursorFollower and CursorRipples */}
           <SiteHeader />
           <RevealMount />
           <BackgroundLogo />
-          <CursorRipples />
           <Suspense fallback={null}>
             <main>{children}</main>
           </Suspense>
           <SiteFooter />
           <Analytics />
         </ThemeProvider>
+        {/* Pink Cursor Script - Load after everything else */}
+        <Script src="/cursor.js" strategy="afterInteractive" />
       </body>
     </html>
   )

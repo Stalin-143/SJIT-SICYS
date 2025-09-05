@@ -21,8 +21,8 @@ export default function HomePage() {
               Women in Cybersecurity
             </h1>
             <p className="reveal mt-4 text-lg leading-relaxed text-foreground/80">
-              Empowering, educating, and supporting women to excel in cybersecurity through community, learning, and
-              leadership.
+              Empowering the next generation of women leaders in cybersecurity.
+At WiCyS, we create opportunities for women to learn, connect, and thrive in the cybersecurity ecosystem through mentorship, skill-building, and community-driven initiatives. Our mission is to bridge the gender gap in tech by fostering inclusion, leadership, and lifelong learning.
             </p>
             <div className="reveal mt-8 flex flex-wrap items-center gap-3">
               <a
@@ -42,7 +42,7 @@ export default function HomePage() {
           <div className="reveal md:justify-self-end">
             {/* MUST use the exact Source URL you provided for the logo */}
             <img
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-09-01%20at%207.58.07%20PM-jYDrMbBkAvz2tVsBt4dbd4SkhK0h6h.jpeg"
+              src="/logo.png"
               alt="WiCyS logo"
               className="w-48 h-auto md:w-60 parallax-2 tilt-small hover-raise"
             />
@@ -70,49 +70,79 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Team */}
-      <section id="team" className="py-16 border-t border-border anchor-target">
-        <div className="w-full px-4 sm:px-6 lg:px-12 xl:px-16">
-          <h2 className="reveal text-2xl font-semibold">Team</h2>
-          <div className="mt-8 grid gap-6 md:grid-cols-3">
-            <article className="reveal stagger-1 rounded-lg border border-border bg-card p-6 shadow-sm hover-raise">
-              <h3 className="font-semibold">President</h3>
-              <p className="text-sm mt-1 opacity-80">Lead organizer and chapter representative.</p>
-              <div className="mt-4 flex items-center gap-3">
-                <Image src="/generic-profile-placeholder.png" alt="" width={64} height={64} className="rounded-full" />
-                <div>
-                  <p className="font-medium">Your Name</p>
-                  <p className="text-xs opacity-70">president@chapter.edu</p>
-                </div>
-              </div>
-            </article>
-
-            <article className="reveal stagger-2 rounded-lg border border-border bg-card p-6 shadow-sm hover-raise">
-              <h3 className="font-semibold">Faculty Advisor</h3>
-              <p className="text-sm mt-1 opacity-80">Guides academic alignment and partnerships.</p>
-              <div className="mt-4 flex items-center gap-3">
-                <Image src="/faculty-profile-placeholder.png" alt="" width={64} height={64} className="rounded-full" />
-                <div>
-                  <p className="font-medium">Professor Name</p>
-                  <p className="text-xs opacity-70">advisor@chapter.edu</p>
-                </div>
-              </div>
-            </article>
-
-            <article className="reveal stagger-3 rounded-lg border border-border bg-card p-6 shadow-sm hover-raise">
-              <h3 className="font-semibold">Vice President</h3>
-              <p className="text-sm mt-1 opacity-80">Operations, events, and member experience.</p>
-              <div className="mt-4 flex items-center gap-3">
-                <Image src="/vp-profile-placeholder.png" alt="" width={64} height={64} className="rounded-full" />
-                <div>
-                  <p className="font-medium">VP Name</p>
-                  <p className="text-xs opacity-70">vp@chapter.edu</p>
-                </div>
-              </div>
-            </article>
+    {/* Team */}
+<section id="team" className="py-16 border-t border-border anchor-target">
+  <div className="w-full px-4 sm:px-6 lg:px-12 xl:px-16">
+    <h2 className="reveal text-2xl font-semibold">Team</h2>
+    <div className="mt-8 grid gap-6 md:grid-cols-3">
+      {/* President - Jaivanti MTS */}
+      <article className="reveal stagger-1 rounded-lg border border-border bg-card p-6 shadow-sm hover-raise">
+        <h3 className="font-semibold">President</h3>
+        <p className="text-sm mt-1 opacity-80">Lead organizer and chapter representative.</p>
+        <div className="mt-4 flex items-center gap-3">
+          <Image src="/jaivanthi.png" alt="" width={64} height={64} className="rounded-full" />
+          <div>
+            <p className="font-medium">Jaivanti MTS</p>
+            <p className="text-xs opacity-70"> 23it152@stjosephs.ac.in</p>
           </div>
         </div>
-      </section>
+      </article>
+
+      {/* President - Krithi D */}
+      <article className="reveal stagger-2 rounded-lg border border-border bg-card p-6 shadow-sm hover-raise">
+        <h3 className="font-semibold">President</h3>
+        <p className="text-sm mt-1 opacity-80">Lead organizer and chapter representative.</p>
+        <div className="mt-4 flex items-center gap-3">
+          <Image src="/1.png" alt="" width={64} height={64} className="rounded-full" />
+          <div>
+            <p className="font-medium">Krithi D</p>
+            <p className="text-xs opacity-70">23ec248@stjosephs.ac.in</p>
+          </div>
+        </div>
+      </article>
+
+      {/* Faculty Advisor - Kalpana Ma’am */}
+      <article className="reveal stagger-3 rounded-lg border border-border bg-card p-6 shadow-sm hover-raise">
+        <h3 className="font-semibold">Faculty Advisor</h3>
+        <p className="text-sm mt-1 opacity-80">Guides academic alignment and partnerships.</p>
+        <p className="text-sm mt-1 opacity-80">Department: IT</p>
+        <div className="mt-4 flex items-center gap-3">
+          <Image src="/kalpana.png" alt="" width={64} height={64} className="rounded-full" />
+          <div>
+            <p className="font-medium">Kalpana BN</p>
+            <p className="text-xs opacity-70">Kalpanabn@stjosephstechnology.ac.in</p>
+          </div>
+        </div>
+      </article>
+
+     
+      {/* Vice President - Harshini */}
+      <article className="reveal stagger-5 rounded-lg border border-border bg-card p-6 shadow-sm hover-raise">
+        <h3 className="font-semibold">Vice President</h3>
+        <p className="text-sm mt-1 opacity-80">Operations, events, and member experience.</p>
+        <div className="mt-4 flex items-center gap-3">
+          <Image src="/2.png" alt="" width={64} height={64} className="rounded-full" />
+          <div>
+            <p className="font-medium">Harshini</p>
+            <p className="text-xs opacity-70">harshini-22cs113@stjosephs.ac.in</p>
+          </div>
+        </div>
+      </article>
+       <article className="reveal stagger-5 rounded-lg border border-border bg-card p-6 shadow-sm hover-raise">
+        <h3 className="font-semibold">Vice President</h3>
+        <p className="text-sm mt-1 opacity-80">Operations, events, and member experience.</p>
+        <div className="mt-4 flex items-center gap-3">
+          <Image src="/generic-profile-placeholder.png" alt="" width={64} height={64} className="rounded-full" />
+          <div>
+            <p className="font-medium">Manikandan</p>
+            <p className="text-xs opacity-70">23cs1137@stjosephstechnology.ac.in</p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
 
       {/* Events */}
       <section id="events" className="py-16 border-t border-border anchor-target">
