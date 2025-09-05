@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WiCyS — Women in Cybersecurity</title>
+    <meta name="description" content="Women in Cybersecurity (WiCyS) — Chapter website with events, membership, resources, gallery, and contact." />
+
+     Inter font 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+     Tailwind CSS CDN 
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // Tailwind config: use matching brand tokens (no arbitrary hex needed)
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui'] },
+          }
+        }
+      }
+    </script>
+
+    <style>
+      /* base styles + animations + link underline */
+      :root {
+        /* Color set (5 total, per guidelines):
+           1) purple-700 (#6d28d9)
+           2) lime-400 (#a3e635)
+           3) blue-500 (#3b82f6)
+           4) gray-100 (#f3f4f6)
+           5) gray-900 (#111827)
+        */
+      }
+
+      /* Animated underline for nav links */
+      .link-underline {
+        background-image: linear-gradient(currentColor, currentColor);
+        background-repeat: no-repeat;
+        background-size: 0% 2px;
+        background-position: 0 100%;
+        transition: background-size 200ms ease-in-out;
+      }
+      .link-underline:hover {
+        background-size: 100% 2px;
+      }
+
+      /* Reveal on scroll */
+      .reveal {
+        opacity: 0;
+        transform: translateY(16px);
+        transition:
+          opacity 600ms ease,
+          transform 600ms ease;
+      }
+      .reveal.in-view {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Hero staged fade-ins */
+      .fade-seq {
+        opacity: 0;
+        transform: translateY(8px);
+        transition:
+          opacity 700ms ease,
+          transform 700ms ease;
+      }
+      .fade-seq.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Ensure anchor targets aren't hidden under sticky header */
+      section {
+        scroll-margin-top: 88px;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 text-gray-900 antialiased">
+     Header / Navigation 
+    <header class="sticky top-0 z-50 bg-white/70 backdrop-blur border-b border-gray-200">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+           Logo + Brand 
+          <a href="#home" class="flex items-center gap-3">
+             Using the exact source URL as requested 
+            <img
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-09-01%20at%207.58.07%20PM-jYDrMbBkAvz2tVsBt4dbd4SkhK0h6h.jpeg"
+              alt="WiCyS logo"
+              class="h-10 w-auto"
+              loading="eager"
+              decoding="async"
+            />
+            <span class="sr-only">Women in Cybersecurity</span>
+          </a>
+
+           Nav 
+          <nav aria-label="Primary" class="hidden md:flex items-center gap-6">
+             Active link styles applied dynamically via JS 
+            <a href="#home" data-nav-link class="text-sm font-medium text-gray-700 hover:text-purple-700 link-underline">Home</a>
+            <a href="#about" data-nav-link class="text-sm font-medium text-gray-700 hover:text-purple-700 link-underline">About</a>
+            <a href="#team" data-nav-link class="text-sm font-medium text-gray-700 hover:text-purple-700 link-underline">Team</a>
+            <a href="#events" data-nav-link class="text-sm font-medium text-gray-700 hover:text-purple-700 link-underline">Events</a>
+            <a href="#membership" data-nav-link class="text-sm font-medium text-gray-700 hover:text-purple-700 link-underline">Membership</a>
+            <a href="#resources" data-nav-link class="text-sm font-medium text-gray-700 hover:text-purple-700 link-underline">Resources</a>
+            <a href="#gallery" data-nav-link class="text-sm font-medium text-gray-700 hover:text-purple-700 link-underline">Gallery</a>
+            <a href="#contact" data-nav-link class="text-sm font-medium text-gray-700 hover:text-purple-700 link-underline">Contact</a>
+          </nav>
+
+           Simple mobile menu (anchor list) 
+          <details class="md:hidden">
+            <summary class="list-none cursor-pointer py-2 px-3 rounded-md border border-gray-300 text-sm text-gray-700 hover:bg-gray-50">
+              Menu
+            </summary>
+            <div class="absolute right-4 mt-2 w-56 rounded-md border border-gray-200 bg-white shadow-lg p-3 flex flex-col gap-2">
+              <a href="#home" class="text-sm text-gray-700 hover:text-purple-700">Home</a>
+              <a href="#about" class="text-sm text-gray-700 hover:text-purple-700">About</a>
+              <a href="#team" class="text-sm text-gray-700 hover:text-purple-700">Team</a>
+              <a href="#events" class="text-sm text-gray-700 hover:text-purple-700">Events</a>
+              <a href="#membership" class="text-sm text-gray-700 hover:text-purple-700">Membership</a>
+              <a href="#resources" class="text-sm text-gray-700 hover:text-purple-700">Resources</a>
+              <a href="#gallery" class="text-sm text-gray-700 hover:text-purple-700">Gallery</a>
+              <a href="#contact" class="text-sm text-gray-700 hover:text-purple-700">Contact</a>
+            </div>
+          </details>
+        </div>
+      </div>
+    </header>
+
+    <main>
+       Home / Hero 
+      <section id="home" class="relative">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 min-h-[80svh] flex items-center py-16">
+          <div class="max-w-3xl">
+            <h1 class="fade-seq text-4xl sm:text-5xl font-bold text-balance text-gray-900">Welcome to Women in Cybersecurity</h1>
+            <p class="fade-seq mt-4 text-lg leading-relaxed text-gray-700">
+              Empowering, educating, and supporting women to excel in cybersecurity through community, learning, and leadership.
+            </p>
+            <div class="fade-seq mt-8">
+              <a
+                href="#membership"
+                class="inline-flex items-center justify-center rounded-md bg-purple-700 px-5 py-3 text-white font-semibold shadow-sm transition
+                       hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-700"
+              >
+                Become a Member
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+       About 
+      <section id="about" class="py-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="reveal max-w-3xl">
+            <h2 class="text-3xl font-bold">About Us</h2>
+            <p class="mt-4 text-gray-700 leading-relaxed">
+              Our WiCyS chapter is dedicated to building a strong, inclusive community that advances the participation of women in cybersecurity.
+              We host educational events, mentorship programs, and hands-on workshops that foster professional growth, technical skills,
+              and leadership opportunities for members at every level.
+            </p>
+          </div>
+        </div>
+      </section>
+
+       Team 
+      <section id="team" class="py-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="reveal">
+            <h2 class="text-3xl font-bold">Our Team</h2>
+            <p class="mt-2 text-gray-700">Meet the leaders who keep our chapter thriving.</p>
+          </div>
+
+          <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" data-stagger>
+             President 
+            <article class="reveal rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+              <img
+                src="/placeholder.svg?height=240&width=400"
+                alt="President portrait placeholder"
+                class="h-48 w-full rounded-md object-cover"
+              />
+              <div class="mt-4">
+                <h3 class="text-xl font-semibold">Alex Morgan</h3>
+                <p class="text-purple-700 font-medium">President</p>
+                <p class="mt-2 text-gray-700 leading-relaxed">
+                  Leads chapter strategy, partnerships, and programming to grow impact and member opportunities.
+                </p>
+              </div>
+            </article>
+
+             Vice President 
+            <article class="reveal rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+              <img
+                src="/placeholder.svg?height=240&width=400"
+                alt="Vice President portrait placeholder"
+                class="h-48 w-full rounded-md object-cover"
+              />
+              <div class="mt-4">
+                <h3 class="text-xl font-semibold">Riley Chen</h3>
+                <p class="text-purple-700 font-medium">Vice President</p>
+                <p class="mt-2 text-gray-700 leading-relaxed">
+                  Coordinates events, supports committees, and drives community engagement across initiatives.
+                </p>
+              </div>
+            </article>
+
+             Faculty Advisor(s) 
+            <article class="reveal rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+              <img
+                src="/placeholder.svg?height=240&width=400"
+                alt="Faculty Advisor portrait placeholder"
+                class="h-48 w-full rounded-md object-cover"
+              />
+              <div class="mt-4">
+                <h3 class="text-xl font-semibold">Dr. Jordan Patel</h3>
+                <p class="text-purple-700 font-medium">Faculty Advisor</p>
+                <p class="mt-2 text-gray-700 leading-relaxed">
+                  Provides guidance, mentorship, and academic alignment for chapter programs and student success.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+       Events 
+      <section id="events" class="py-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="reveal">
+            <h2 class="text-3xl font-bold">Events</h2>
+            <p class="mt-2 text-gray-700">Join our upcoming sessions and explore highlights from past events.</p>
+          </div>
+
+           Upcoming 
+          <div class="mt-10">
+            <h3 class="reveal text-2xl font-semibold">Upcoming Events</h3>
+            <div class="mt-6 grid gap-6 md:grid-cols-2" data-stagger>
+               Event card 
+              <article class="reveal rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+                <h4 class="text-xl font-semibold">Intro to Threat Modeling</h4>
+                <p class="mt-1 text-gray-700">Date: Oct 15, 2025 · 5:00–6:30 PM · Room 210</p>
+                <p class="mt-2 text-gray-700">Hands-on workshop covering STRIDE and attack trees.</p>
+                <a
+                  href="#contact"
+                  class="mt-4 inline-flex items-center justify-center rounded-md bg-lime-400 px-4 py-2 font-semibold text-gray-900 shadow-sm transition
+                         hover:-translate-y-0.5 hover:shadow-md hover:bg-lime-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime-400"
+                >
+                  Register Now
+                </a>
+              </article>
+
+              <article class="reveal rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+                <h4 class="text-xl font-semibold">Blue Team Lab Night</h4>
+                <p class="mt-1 text-gray-700">Date: Nov 6, 2025 · 6:00–8:00 PM · Cyber Lab</p>
+                <p class="mt-2 text-gray-700">Defensive tooling, SIEM dashboards, and incident response drills.</p>
+                <a
+                  href="#contact"
+                  class="mt-4 inline-flex items-center justify-center rounded-md bg-lime-400 px-4 py-2 font-semibold text-gray-900 shadow-sm transition
+                         hover:-translate-y-0.5 hover:shadow-md hover:bg-lime-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime-400"
+                >
+                  Register Now
+                </a>
+              </article>
+            </div>
+          </div>
+
+           Past 
+          <div class="mt-14">
+            <h3 class="reveal text-2xl font-semibold">Past Events</h3>
+            <div class="mt-6 grid gap-6 md:grid-cols-3" data-stagger>
+              <article class="reveal rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+                <h4 class="font-semibold">Capture the Flag Kickoff</h4>
+                <p class="mt-1 text-gray-700">Sept 2025</p>
+                <p class="mt-2 text-gray-700">Team-based CTF with beginner-friendly challenges and prizes.</p>
+              </article>
+              <article class="reveal rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+                <h4 class="font-semibold">Career Panel: Breaking In</h4>
+                <p class="mt-1 text-gray-700">Aug 2025</p>
+                <p class="mt-2 text-gray-700">Industry experts shared pathways into SOC, GRC, and AppSec roles.</p>
+              </article>
+              <article class="reveal rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+                <h4 class="font-semibold">Web Security Fundamentals</h4>
+                <p class="mt-1 text-gray-700">May 2025</p>
+                <p class="mt-2 text-gray-700">OWASP Top 10 overview with live demos and best practices.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+       Membership 
+      <section id="membership" class="py-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="reveal max-w-3xl">
+            <h2 class="text-3xl font-bold">Join Our Community</h2>
+            <p class="mt-4 text-gray-700 leading-relaxed">
+              Become a member to access hands-on workshops, mentorship, networking events, and exclusive opportunities.
+              Membership supports our mission and helps us offer more programs.
+            </p>
+            <ul class="mt-4 list-disc pl-5 text-gray-700 space-y-1">
+              <li>Monthly workshops and study groups</li>
+              <li>Mentorship matching and career support</li>
+              <li>Speaker sessions and employer networking</li>
+            </ul>
+            <a
+              href="#contact"
+              class="mt-6 inline-flex items-center justify-center rounded-md bg-purple-700 px-5 py-3 text-white font-semibold shadow-sm transition
+                     hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-700"
+            >
+              Sign Up Now
+            </a>
+          </div>
+        </div>
+      </section>
+
+       Resources 
+      <section id="resources" class="py-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="reveal">
+            <h2 class="text-3xl font-bold">Helpful Resources</h2>
+            <p class="mt-2 text-gray-700">Curated tools, learning paths, and opportunities.</p>
+          </div>
+
+          <div class="mt-8 grid gap-6 md:grid-cols-3" data-stagger>
+            <div class="reveal rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+              <h3 class="font-semibold text-blue-500">Learning Platforms</h3>
+              <ul class="mt-3 list-disc pl-5 text-gray-700 space-y-1">
+                <li><a class="text-purple-700 hover:underline" href="https://tryhackme.com" target="_blank" rel="noreferrer">TryHackMe</a></li>
+                <li><a class="text-purple-700 hover:underline" href="https://portswigger.net/web-security" target="_blank" rel="noreferrer">PortSwigger Academy</a></li>
+                <li><a class="text-purple-700 hover:underline" href="https://www.hackthebox.com" target="_blank" rel="noreferrer">Hack The Box</a></li>
+              </ul>
+            </div>
+
+            <div class="reveal rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+              <h3 class="font-semibold text-blue-500">Industry News</h3>
+              <ul class="mt-3 list-disc pl-5 text-gray-700 space-y-1">
+                <li><a class="text-purple-700 hover:underline" href="https://krebsonsecurity.com" target="_blank" rel="noreferrer">Krebs on Security</a></li>
+                <li><a class="text-purple-700 hover:underline" href="https://thehackernews.com" target="_blank" rel="noreferrer">The Hacker News</a></li>
+                <li><a class="text-purple-700 hover:underline" href="https://www.bleepingcomputer.com/" target="_blank" rel="noreferrer">BleepingComputer</a></li>
+              </ul>
+            </div>
+
+            <div class="reveal rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+              <h3 class="font-semibold text-blue-500">Scholarships</h3>
+              <ul class="mt-3 list-disc pl-5 text-gray-700 space-y-1">
+                <li><a class="text-purple-700 hover:underline" href="https://www.wicys.org/" target="_blank" rel="noreferrer">WiCyS Opportunities</a></li>
+                <li><a class="text-purple-700 hover:underline" href="https://www.sans.org/scholarship-academy/" target="_blank" rel="noreferrer">SANS Programs</a></li>
+                <li><a class="text-purple-700 hover:underline" href="https://www.cisa.gov/careers/scholarship-service-cybersecurity" target="_blank" rel="noreferrer">SFS (CISA)</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+       Gallery 
+      <section id="gallery" class="py-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="reveal">
+            <h2 class="text-3xl font-bold">Gallery</h2>
+            <p class="mt-2 text-gray-700">Moments from our events and meetups.</p>
+          </div>
+
+          <div class="mt-8 grid gap-4 sm:grid-cols-2 md:grid-cols-3" data-stagger>
+             Image tile 
+            <figure class="reveal group relative overflow-hidden rounded-lg border border-gray-200 bg-white">
+              <img
+                src="/placeholder.svg?height=320&width=480"
+                alt="Event photo 1"
+                class="h-56 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+              <figcaption class="pointer-events-none absolute inset-0 flex items-end p-3 text-white bg-black/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <span class="text-sm">Workshop · Spring 2025</span>
+              </figcaption>
+            </figure>
+
+            <figure class="reveal group relative overflow-hidden rounded-lg border border-gray-200 bg-white">
+              <img
+                src="/placeholder.svg?height=320&width=480"
+                alt="Event photo 2"
+                class="h-56 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+              <figcaption class="pointer-events-none absolute inset-0 flex items-end p-3 text-white bg-black/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <span class="text-sm">CTF · Summer 2025</span>
+              </figcaption>
+            </figure>
+
+            <figure class="reveal group relative overflow-hidden rounded-lg border border-gray-200 bg-white">
+              <img
+                src="/placeholder.svg?height=320&width=480"
+                alt="Event photo 3"
+                class="h-56 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+              <figcaption class="pointer-events-none absolute inset-0 flex items-end p-3 text-white bg-black/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <span class="text-sm">Panel · 2025</span>
+              </figcaption>
+            </figure>
+
+            <figure class="reveal group relative overflow-hidden rounded-lg border border-gray-200 bg-white">
+              <img
+                src="/placeholder.svg?height=320&width=480"
+                alt="Event photo 4"
+                class="h-56 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+              <figcaption class="pointer-events-none absolute inset-0 flex items-end p-3 text-white bg-black/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <span class="text-sm">Meetup · 2025</span>
+              </figcaption>
+            </figure>
+
+            <figure class="reveal group relative overflow-hidden rounded-lg border border-gray-200 bg-white">
+              <img
+                src="/placeholder.svg?height=320&width=480"
+                alt="Event photo 5"
+                class="h-56 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+              <figcaption class="pointer-events-none absolute inset-0 flex items-end p-3 text-white bg-black/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <span class="text-sm">Talk · 2025</span>
+              </figcaption>
+            </figure>
+
+            <figure class="reveal group relative overflow-hidden rounded-lg border border-gray-200 bg-white">
+              <img
+                src="/placeholder.svg?height=320&width=480"
+                alt="Event photo 6"
+                class="h-56 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+              <figcaption class="pointer-events-none absolute inset-0 flex items-end p-3 text-white bg-black/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <span class="text-sm">Networking · 2025</span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+       Contact 
+      <section id="contact" class="py-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="reveal">
+            <h2 class="text-3xl font-bold">Get In Touch</h2>
+            <p class="mt-2 text-gray-700">Questions, partnerships, or membership? We’d love to hear from you.</p>
+          </div>
+
+          <div class="mt-8 grid gap-8 md:grid-cols-2">
+             Contact details 
+            <div class="reveal space-y-4">
+              <p class="text-gray-700">
+                Email: <a href="mailto:contact@wicys-chapter.org" class="text-purple-700 hover:underline">contact@wicys-chapter.org</a>
+              </p>
+              <div class="flex items-center gap-4">
+                <a aria-label="LinkedIn" href="#" class="text-gray-700 hover:text-purple-700 transition" title="LinkedIn">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.05c.53-1 1.84-2.2 3.79-2.2 4.06 0 4.81 2.67 4.81 6.14V24h-4v-7.1c0-1.7-.03-3.89-2.37-3.89-2.37 0-2.73 1.85-2.73 3.77V24h-4V8z"/></svg>
+                </a>
+                <a aria-label="Twitter" href="#" class="text-gray-700 hover:text-purple-700 transition" title="Twitter / X">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2H21.5l-7.5 8.564L23.5 22h-7.277l-5.69-6.592L3.5 22H.244l8.214-9.383L.5 2h7.277l5.165 5.995L18.244 2zm-1.274 18h2.007L7.108 4H5.1l11.87 16z"/></svg>
+                </a>
+              </div>
+            </div>
+
+             Contact form 
+            <form class="reveal rounded-lg border border-gray-200 bg-white p-6 shadow-sm" onsubmit="event.preventDefault(); alert('Message sent!');">
+              <div class="grid gap-4">
+                <div>
+                  <label for="name" class="block text-sm font-medium text-gray-800">Name</label>
+                  <input id="name" name="name" type="text" required
+                         class="mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-gray-900 shadow-sm focus:border-purple-700 focus:ring-purple-700" />
+                </div>
+                <div>
+                  <label for="email" class="block text-sm font-medium text-gray-800">Email</label>
+                  <input id="email" name="email" type="email" required
+                         class="mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-gray-900 shadow-sm focus:border-purple-700 focus:ring-purple-700" />
+                </div>
+                <div>
+                  <label for="message" class="block text-sm font-medium text-gray-800">Message</label>
+                  <textarea id="message" name="message" rows="5" required
+                            class="mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-gray-900 shadow-sm focus:border-purple-700 focus:ring-purple-700"></textarea>
+                </div>
+                <button
+                  type="submit"
+                  class="inline-flex items-center justify-center rounded-md bg-blue-500 px-5 py-3 text-white font-semibold shadow-sm transition
+                         hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                >
+                  Send Message
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+     Footer 
+    <footer class="border-t border-gray-200 py-8">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-sm text-gray-700">© 2025 Women in Cybersecurity. All Rights Reserved.</p>
+        <div class="flex items-center gap-4">
+          <a aria-label="LinkedIn" href="#" class="text-gray-700 hover:text-purple-700 transition" title="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.05c.53-1 1.84-2.2 3.79-2.2 4.06 0 4.81 2.67 4.81 6.14V24h-4v-7.1c0-1.7-.03-3.89-2.37-3.89-2.37 0-2.73 1.85-2.73 3.77V24h-4V8z"/></svg>
+          </a>
+          <a aria-label="Twitter" href="#" class="text-gray-700 hover:text-purple-700 transition" title="Twitter / X">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2H21.5l-7.5 8.564L23.5 22h-7.277l-5.69-6.592L3.5 22H.244l8.214-9.383L.5 2h7.277l5.165 5.995L18.244 2zm-1.274 18h2.007L7.108 4H5.1l11.87 16z"/></svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {
+        const seq = document.querySelectorAll('#home .fade-seq');
+        seq.forEach((el, i) => {
+          setTimeout(() => el.classList.add('show'), 200 + i * 200);
+        });
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+          }
+        });
+      }, { threshold: 0.15 });
+
+      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+      // Staggered children animation
+      document.querySelectorAll('[data-stagger]').forEach((container) => {
+        const children = Array.from(container.children);
+        children.forEach((child, i) => {
+          child.style.transitionDelay = (100 + i * 80) + 'ms';
+        });
+      });
+
+      // Active nav highlighting on scroll
+      const sections = Array.from(document.querySelectorAll('main section[id]'));
+      const navLinks = Array.from(document.querySelectorAll('[data-nav-link]'));
+      function setActive(id) {
+        navLinks.forEach((a) => {
+          const isActive = a.getAttribute('href') === '#' + id;
+          a.classList.toggle('text-purple-700', isActive);
+          a.classList.toggle('font-semibold', isActive);
+        });
+      }
+      const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActive(entry.target.id);
+        });
+      }, { rootMargin: '-40% 0px -50% 0px', threshold: 0.1 });
+      sections.forEach((sec) => sectionObserver.observe(sec));
+
+      // Close <details> menu after clicking a link (mobile)
+      document.querySelectorAll('details a[href^="#"]').forEach((a) => {
+        a.addEventListener('click', () => {
+          const d = a.closest('details');
+          if (d) d.removeAttribute('open');
+        });
+      });
+    </script>
+  </body>
+</html>
