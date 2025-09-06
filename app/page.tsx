@@ -124,7 +124,7 @@ At WiCyS, we create opportunities for women to learn, connect, and thrive in the
           <Image src="/2.png" alt="" width={64} height={64} className="rounded-full" />
           <div>
             <p className="font-medium">Harshini</p>
-            <p className="text-xs opacity-70">harshini-22cs113@stjosephs.ac.in</p>
+            <p className="text-xs opacity-70">22cs113@stjosephs.ac.in</p>
           </div>
         </div>
       </article>
@@ -132,7 +132,7 @@ At WiCyS, we create opportunities for women to learn, connect, and thrive in the
         <h3 className="font-semibold">Vice President</h3>
         <p className="text-sm mt-1 opacity-80">Operations, events, and member experience.</p>
         <div className="mt-4 flex items-center gap-3">
-          <Image src="/generic-profile-placeholder.png" alt="" width={64} height={64} className="rounded-full" />
+          <Image src="/manikandan.jpeg" alt="" width={64} height={64} className="rounded-full" />
           <div>
             <p className="font-medium">Manikandan</p>
             <p className="text-xs opacity-70">23cs1137@stjosephstechnology.ac.in</p>
